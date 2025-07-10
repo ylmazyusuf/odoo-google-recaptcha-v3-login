@@ -73,7 +73,7 @@
                         <p>We couldn't verify you're not a robot.</p>
                         <p>Please try again.</p>
                         <a href="/web/login" class="btn-purple">Back to Login</a>
-                        <div class="powered">FPCWorld</div>
+                        <div class="powered">FPCBilgisayar</div>
                     </div>
                 </div>
             </body>

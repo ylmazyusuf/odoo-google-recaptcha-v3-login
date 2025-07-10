@@ -1,9 +1,9 @@
 {
-    'name': 'Login reCAPTCHA v3',
+    'name': 'Odoo Google reCAPTCHA v3 Login',
     'version': '1.0',
     'category': 'Authentication',
     'summary': 'Adds Google reCAPTCHA v3 to the login form',
-    'author': 'FPCWorld',
+    'author': 'FPCBilgisayar',
     'depends': ['base', 'web', 'google_recaptcha'],
     'data': [
         'views/auth_recaptcha_templates.xml'
