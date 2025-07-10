@@ -1,0 +1,82 @@
+<odoo>
+    <template id="auth_recaptcha_inherit" inherit_id="web.login">
+        <xpath expr="//form" position="attributes">
+            <attribute name="class" add="o_recaptcha" separator=" "/>
+        </xpath>
+        <xpath expr="//form" position="inside">
+            <span id="recaptcha-config" t-att-data-sitekey="request.env['ir.config_parameter'].sudo().get_param('recaptcha_public_key')"/>
+            <owl-component name="auth_recaptcha.recaptcha_component"/>
+        </xpath>
+    </template>
+
+    <template id="recaptcha_error" name="reCAPTCHA Error Page">
+        <html>
+            <head>
+                <title>Login Error - reCAPTCHA</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <style>
+                    body {
+                        background-color: #f0f0f0;
+                        font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                        margin: 0;
+                    }
+                    .login-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-height: 100vh;
+                    }
+                    .login-box {
+                        background-color: #fff;
+                        padding: 2rem;
+                        border-radius: 6px;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                        width: 100%;
+                        max-width: 400px;
+                        text-align: center;
+                    }
+                    .login-box h2 {
+                        font-size: 1.5rem;
+                        color: #875a7b;
+                        margin-bottom: 1rem;
+                    }
+                    .login-box p {
+                        color: #6c757d;
+                    }
+                    .btn-purple {
+                        background-color: #875a7b;
+                        border-color: #875a7b;
+                        color: #fff;
+                        text-decoration: none;
+                        padding: 0.5rem 1rem;
+                        border-radius: 4px;
+                        width: 100%;
+                        font-weight: 500;
+                        margin-top: 1rem;
+                    }
+                    .btn-purple:hover {
+                        background-color: #6b445f;
+                        border-color: #6b445f;
+                        color: #fff;
+                    }
+                    .powered {
+                        margin-top: 1.5rem;
+                        font-size: 0.8rem;
+                        color: #aaa;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="login-container">
+                    <div class="login-box">
+                        <h2>reCAPTCHA Verification Failed</h2>
+                        <p>We couldn't verify you're not a robot.</p>
+                        <p>Please try again.</p>
+                        <a href="/web/login" class="btn-purple">Back to Login</a>
+                        <div class="powered">FPCWorld</div>
+                    </div>
+                </div>
+            </body>
+        </html>
+    </template>
+</odoo>
